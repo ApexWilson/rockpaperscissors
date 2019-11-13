@@ -9,35 +9,42 @@
 
 // DOCUMENT READY FUNCTION BELOW
 $('#shoot').click(function(){
-    let inputVal = $('#input').val
+    let inputVal = $('#input').val();
+
     $('#userChoice').text(inputVal);
-    $('#computerChoice').text(Math.floor(Math.random().toString(36).substring("Rock","Paper","Scissors")));
+    var random = Math.ceil(Math.random()*10);
+    if (random > 6 ){
+        $('#computerChoice').html("Scissors");
+    }
+    else if (random > 3 ){
+        $('#computerChoice').html("Paper");
+    }
+    else{ 
+        $('#computerChoice').html("Rock");
+    }
+    let computerChoice = $('#computerChoice').text();
+    let winner;
     if(inputVal === "Rock" && computerChoice === "Scissors"){
             winner = "Player";
         }
-        if(inputVal === "Rock" && computerChoice === "Paper"){
+        else if(inputVal === "Rock" && computerChoice === "Paper"){
             winner = "Computer"
         }
-        if(inputVal === "Rock" && computerChoice === "Rock"){
-            winner = "No one wins"
-        }
-        if(inputVal === "Scissors" && computerChoice === "Scissors"){
-            winner = "No one wins"
-        }
-        if(inputVal === "Scissors" && computerChoice === "Paper"){
+        else if(inputVal === "Scissors" && computerChoice === "Paper"){
             winner = "Player";
         }
-        if(inputVal === "Scissors" && computerChoice === "Rock"){
+        else if(inputVal === "Scissors" && computerChoice === "Rock"){
             winner = "Computer"
         }
-        if(inputVal === "Paper" && computerChoice === "Scissors"){
+        else if(inputVal === "Paper" && computerChoice === "Scissors"){
             winner = "Computer"
         }
-        if(inputVal === "Paper" && computerChoice === "Paper"){
-            winner = "No one wins"
+        else if(inputVal === computerChoice){
+            winner = "No one"
         }
-        if(inputVal === "Paper" && computerChoice === "Rock"){
+        else if(inputVal === "Paper" && computerChoice === "Rock"){
             winner = "Player";
         }
         $('#result').text(winner + " " + "Wins!");
+        console.log(winner);
 });
