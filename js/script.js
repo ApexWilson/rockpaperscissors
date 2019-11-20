@@ -44,6 +44,8 @@ $('#shoot').click(function(){
         }
         else if(inputVal === "Paper" && computerChoice === "Rock"){
             winner = "Player";
+        }else{
+            winner = "No one"
         }
         $('#result').text(winner + " " + "Wins!");
         console.log(winner);
