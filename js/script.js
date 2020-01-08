@@ -9,40 +9,40 @@
 
 // DOCUMENT READY FUNCTION BELOW
 $('#shoot').click(function(){
-    let inputVal = $('#input').val();
+    let inputVal = $('#input').val().toLowerCase();
 
     $('#userChoice').text(inputVal);
     var random = Math.ceil(Math.random()*10);
     if (random > 6 ){
-        $('#computerChoice').html("Scissors");
+        $('#computerChoice').html("scissors");
     }
     else if (random > 3 ){
-        $('#computerChoice').html("Paper");
+        $('#computerChoice').html("paper");
     }
     else{ 
-        $('#computerChoice').html("Rock");
+        $('#computerChoice').html("rock");
     }
     let computerChoice = $('#computerChoice').text();
     let winner;
-    if(inputVal === "Rock" && computerChoice === "Scissors"){
+    if(inputVal === "rock" && computerChoice === "scissors"){
             winner = "Player";
         }
-        else if(inputVal === "Rock" && computerChoice === "Paper"){
+        else if(inputVal === "rock" && computerChoice === "paper"){
             winner = "Computer"
         }
-        else if(inputVal === "Scissors" && computerChoice === "Paper"){
+        else if(inputVal === "scissors" && computerChoice === "paper"){
             winner = "Player";
         }
-        else if(inputVal === "Scissors" && computerChoice === "Rock"){
+        else if(inputVal === "scissors" && computerChoice === "rock"){
             winner = "Computer"
         }
-        else if(inputVal === "Paper" && computerChoice === "Scissors"){
+        else if(inputVal === "paper" && computerChoice === "scissors"){
             winner = "Computer"
         }
         else if(inputVal === computerChoice){
             winner = "No one"
         }
-        else if(inputVal === "Paper" && computerChoice === "Rock"){
+        else if(inputVal === "paper" && computerChoice === "rock"){
             winner = "Player";
         }else{
             winner = "No one"
